@@ -10,8 +10,6 @@ set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -Wpedantic -Wold-style-cast \
     -Wcast-align -Wsign-promo -Wmissing-include-dirs \
     -Woverloaded-virtual -Wctor-dtor-privacy")
 
-# find_package(Boost COMPONENTS system filesystem program_options REQUIRED)7
-
 include_directories(src)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
@@ -22,9 +20,12 @@ file(
     RELATIVE ${CMAKE_SOURCE_DIR}
     src/*.cpp
     src/*.h
+    src/JSON/*.hpp
+    src/SHA256/*.h 
+    src/SHA256/*.cpp 
 )
 
 message("==== BlockchainDemo sources: ${BLOCKCHAINDEMO_SOURCES}")
 
 add_executable(BlockchainDemo ${BLOCKCHAINDEMO_SOURCES})
-# target_link_libraries(ExamGenerator Boost::program_options Boost::filesystem)
+# target_link_libraries(BlockchainDemo Boost::program_options Boost::filesystem)
