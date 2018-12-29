@@ -6,7 +6,8 @@ Learn how to write a C++ Blockchain demo version for educational purposes only.
 
 The C++ code is based on:
 
-+ [Creating a blockchain with Javascript, part 1](https://www.youtube.com/watch?v=zVqczFZr124).
++ [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124).
++ [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814)
 
 ## Build management by CMake
 
@@ -23,4 +24,3 @@ The executable is found in the bin directory.
 
     cd ../bin
     ./Blockchain-demo
- 
