@@ -16,3 +16,11 @@ CMake must be installed. Goto the Blockchain-demo directory.
     cd build
     cmake ..
     make
+
+## Executing 'Blockchain-demo'
+
+The executable is found in the bin directory.
+
+    cd ../bin
+    ./Blockchain-demo
+ 
