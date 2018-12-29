@@ -7,11 +7,11 @@ int main(int argc, char *argv[])
 {
    std::cout << APPNAME << " " << VERSION << "\n\n";
 
-    uint32_t difficulty{4};
+   uint32_t difficulty{4};
 
-    if (argc == 2) {
-       difficulty = std::stoul(argv[1]);
-    }
+   if (argc == 2) {
+      difficulty = std::stoul(argv[1]);
+   }
 
    Blockchain blockchain{difficulty};
 
