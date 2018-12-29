@@ -1,13 +1,13 @@
 #include "Block.h"
 #include "SHA256/sha256.h"
-#include "JSON/json.hpp"
 
 #include <sstream>
 
 std::ostream &operator<<(std::ostream &os, const Block &block)
 {
-   os << block.index_ << " " << block.timestamp_ << " " << block.data_ << " "
-      << block.hash_;
+   os << "[" << block.index_ << "] " << block.timestamp_ << " "
+      << block.data_ << " " << block.previousHash_ << " " << block.hash_;
+
    return os;
 }
 
@@ -17,15 +17,14 @@ Block::Block(uint64_t index, const std::string &timestamp,
    , timestamp_{timestamp}
    , data_{data}
    , previousHash_{previousHash}
-   , hash_{}
+   , hash_{calculateHash()}
 {
-   calculateHash();
 }
 
-void Block::calculateHash()
+std::string Block::calculateHash() const
 {
    std::stringstream ss;
-   ss << index_ << previousHash_ << timestamp_ << data_ << '\0';
-   std::cout << __func__ << " " << ss.str() << "\n\n";
-   hash_ = sha256(ss.str());
+   ss << index_ << previousHash_ << timestamp_ << data_;
+
+   return sha256(ss.str());
 }

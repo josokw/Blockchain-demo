@@ -17,6 +17,7 @@ public:
    ~Blockchain() = default;
 
    void addBlock(Block *pBlock);
+   bool isValid() const;
 
 private:
    std::vector<Block *> blockchain_;
