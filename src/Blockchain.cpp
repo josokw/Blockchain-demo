@@ -8,8 +8,9 @@ std::ostream &operator<<(std::ostream &os, const Blockchain &blockchain)
    return os;
 }
 
-Blockchain::Blockchain()
-   : blockchain_{}
+Blockchain::Blockchain(uint64_t difficulty)
+   : difficulty_{difficulty}
+   , blockchain_{}
 {
    blockchain_.emplace_back(new Block(0, "01/01/2018", "Genesis block", "0"));
 }
@@ -17,7 +18,7 @@ Blockchain::Blockchain()
 void Blockchain::addBlock(Block *pBlock)
 {
    pBlock->setPreviousHash(getLastBlock()->getHash());
-   pBlock->setHash(pBlock->calculateHash());
+   pBlock->mine(difficulty_);
    blockchain_.push_back(pBlock);
 }
 

@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 
+/// Block represents a block in a blockchain.
+///
+/// Contains a nonce (number only used once): a number added to a block,
+/// when rehashed meets the difficulty level restrictions.
 class Block
 {
    friend std::ostream &operator<<(std::ostream &os, const Block &block);
@@ -26,6 +30,7 @@ public:
    const std::string &getPreviousHash() const { return previousHash_; }
 
    std::string calculateHash() const;
+   void mine(uint32_t difficulty);
 
 private:
    uint64_t index_;
@@ -33,6 +38,7 @@ private:
    std::string data_;
    std::string previousHash_;
    std::string hash_;
+   uint64_t nonce_;
 };
 
 #endif
