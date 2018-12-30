@@ -1,9 +1,13 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
+#include "JSON/json.hpp"
+
 #include <cstdint>
 #include <iostream>
 #include <string>
+
+using json = nlohmann::json;
 
 /// Block represents a block in a blockchain.
 ///
@@ -20,6 +24,7 @@ public:
    Block &operator=(const Block &other) = delete;
    ~Block() = default;
 
+   auto getIndex() const { return index_; }
    void setHash(const std::string &hash) { hash_ = hash; }
    const std::string &getHash() const { return hash_; }
 
@@ -31,6 +36,7 @@ public:
 
    std::string calculateHash() const;
    void mine(uint32_t difficulty);
+   json toJSON() const;
 
 private:
    uint64_t index_;

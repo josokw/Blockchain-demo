@@ -36,3 +36,15 @@ bool Blockchain::isValid() const
    }
    return true;
 }
+
+json Blockchain::toJSON() const
+{
+   json jsonData;
+
+   jsonData["length"] = blockchain_.size();
+   for (auto &block: blockchain_) {
+      jsonData["chain"][block->getIndex()] = block->toJSON();
+   }
+
+   return jsonData;
+}

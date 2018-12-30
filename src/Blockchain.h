@@ -1,11 +1,14 @@
 #ifndef BLOCKCHAIN_H
 #define BLOCKCHAIN_H
 
+#include "Block.h"
+#include "JSON/json.hpp"
+
 #include <iostream>
 #include <memory>
 #include <vector>
 
-#include "Block.h"
+using json = nlohmann::json;
 
 /// The class Blockchain represents a blockchain implemented in an STL vector.
 class Blockchain
@@ -19,6 +22,7 @@ public:
 
    void addBlock(Block *pBlock);
    bool isValid() const;
+   json toJSON() const;
 
 private:
    uint64_t difficulty_;

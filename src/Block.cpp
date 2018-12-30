@@ -42,3 +42,17 @@ void Block::mine(uint32_t difficulty)
 
    std::cout << "Block mined: " << hash_ << std::endl;
 }
+
+json Block::toJSON() const
+{
+   json jsData;
+
+   jsData["index"] = index_;
+   jsData["timestamp"] = timestamp_;
+   jsData["data"] = data_;
+   jsData["previousHash"] = previousHash_;
+   jsData["hash"] = hash_;
+   jsData["nonce"] = nonce_;
+
+   return jsData;
+}
