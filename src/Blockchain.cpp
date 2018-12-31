@@ -2,7 +2,7 @@
 
 std::ostream &operator<<(std::ostream &os, const Blockchain &blockchain)
 {
-   for (auto bl : blockchain.blockchain_) {
+   for (auto &bl : blockchain.blockchain_) {
       os << *bl << "\n";
    }
    return os;
@@ -15,11 +15,13 @@ Blockchain::Blockchain(uint64_t difficulty)
    blockchain_.emplace_back(new Block(0, "01/01/2018", "Genesis block", "0"));
 }
 
-void Blockchain::addBlock(Block *pBlock)
+void Blockchain::addBlock(uint64_t index, const std::string &timestamp,
+                          const std::string &data)
 {
-   pBlock->setPreviousHash(getLastBlock()->getHash());
+   auto pBlock =
+      std::make_unique<Block>(index, timestamp, data, getLastBlock().getHash());
    pBlock->mine(difficulty_);
-   blockchain_.push_back(pBlock);
+   blockchain_.push_back(std::move(pBlock));
 }
 
 bool Blockchain::isValid() const
@@ -42,7 +44,7 @@ json Blockchain::toJSON() const
    json jsonData;
 
    jsonData["length"] = blockchain_.size();
-   for (auto &block: blockchain_) {
+   for (auto &block : blockchain_) {
       jsonData["chain"][block->getIndex()] = block->toJSON();
    }
 
