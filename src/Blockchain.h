@@ -10,7 +10,8 @@
 
 using json = nlohmann::json;
 
-/// The class Blockchain represents a blockchain implemented in an STL vector.
+/// The class Blockchain represents a blockchain implemented in an STL vector
+/// containing unique_ptr's to Block objects.
 /// All Blocks are owned by Blockchain.
 class Blockchain
 {

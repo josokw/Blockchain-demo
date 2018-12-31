@@ -12,7 +12,8 @@ Blockchain::Blockchain(uint64_t difficulty)
    : difficulty_{difficulty}
    , blockchain_{}
 {
-   blockchain_.emplace_back(new Block(0, "01/01/2018", "Genesis block", "0"));
+   blockchain_.emplace_back(
+      std::make_unique<Block>(0, "01/01/2018", "Genesis block", "0"));
 }
 
 void Blockchain::addBlock(uint64_t index, const std::string &timestamp,
