@@ -20,7 +20,7 @@ CMake must be installed. Goto the Blockchain-demo directory.
 
 ## Executing 'Blockchain-demo'
 
-The executable is found in the bin directory. The default difficulty level for mining is 3.
+The executable is found in the bin directory. The default difficulty level for mining is 4.
 
     cd ../bin
     ./Blockchain-demo
@@ -28,7 +28,7 @@ The executable is found in the bin directory. The default difficulty level for m
 The difficulty level for mining can be changed by a command line parameter.
 
     cd ../bin
-    ./Blockchain-demo 4
+    ./Blockchain-demo 3
 
 ## Output example
 
