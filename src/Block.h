@@ -22,13 +22,13 @@ class Block
 public:
    using transactions_t = std::vector<std::unique_ptr<Transaction>>;
 
-   Block(const std::string &timestamp, transactions_t &transactions,
-         const std::string &previousHash = "");
+   explicit Block(const std::string &timestamp, transactions_t &transactions,
+                  const std::string &previousHash = "");
    Block(const Block &other) = delete;
    Block &operator=(const Block &other) = delete;
    ~Block() = default;
 
-   const auto& getTransactions() const { return transactions_; }
+   const auto &getTransactions() const { return transactions_; }
 
    void setHash(const std::string &hash) { hash_ = hash; }
    const std::string &getHash() const { return hash_; }

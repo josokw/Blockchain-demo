@@ -20,7 +20,7 @@ class Blockchain
                                    const Blockchain &blockchain);
 
 public:
-   Blockchain(uint64_t difficulty = 3, int miningReward = 100);
+   explicit Blockchain(uint64_t difficulty = 3, int miningReward = 100);
    ~Blockchain() = default;
 
    void createTransaction(const std::string &fromAddress,
