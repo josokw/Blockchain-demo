@@ -16,12 +16,24 @@ int main(int argc, char *argv[])
 
    Blockchain josokwCoin{difficulty};
 
-   josokwCoin.addBlock("{ amount: 4 }");
-   josokwCoin.addBlock("{ amount: 10}");
+   josokwCoin.createTransaction("a", "b", 111);
+   josokwCoin.createTransaction("c", "d", 222);
+   josokwCoin.createTransaction("e", "f", 333);
+   josokwCoin.createTransaction("g", "h", 444);
 
-   std::cout << "\nBlockchain:\n" << josokwCoin << "\n";
+   josokwCoin.minePendingTransaction("thisIsMe");
 
-   std::cout << "Blockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
+   std::cout << "\nBlockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
+   std::cout << "Balance 'a' is " << josokwCoin.getBalanceOfAddress("a")
+             << "\n\n";
+
+   josokwCoin.createTransaction("b", "a", 1111);
+   josokwCoin.minePendingTransaction("thisIsMe");
+
+   std::cout << "\nBlockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
+
+   std::cout << "Balance 'thisIsMe' is "
+             << josokwCoin.getBalanceOfAddress("thisIsMe") << "\n\n";
 
    std::cout << "The josokwCoin blockchain is "
              << (josokwCoin.isValid() ? "valid" : "not valid") << "\n\n";

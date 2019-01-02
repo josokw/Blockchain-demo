@@ -1,21 +1,24 @@
 #include "Block.h"
+
 #include "SHA256/sha256.h"
 
 #include <sstream>
 
 std::ostream &operator<<(std::ostream &os, const Block &block)
 {
-   os << block.timestamp_ << " " << block.data_
-      << " " << block.previousHash_ << " " << block.hash_ << " "
-      << block.nonce_;
+   os << block.timestamp_ << " ";
+   for (auto &trans : block.transactions_) {
+      os << *trans << " ";
+   }
+   os << block.previousHash_ << " " << block.hash_ << " " << block.nonce_;
 
    return os;
 }
 
-Block::Block(const std::string &timestamp,
-             const std::string &data, const std::string &previousHash)
+Block::Block(const std::string &timestamp, transactions_t &transactions,
+             const std::string &previousHash)
    : timestamp_{timestamp}
-   , data_{data}
+   , transactions_{std::move(transactions)}
    , previousHash_{previousHash}
    , hash_{calculateHash()}
    , nonce_{0}
@@ -25,7 +28,7 @@ Block::Block(const std::string &timestamp,
 std::string Block::calculateHash() const
 {
    std::stringstream ss;
-   ss << previousHash_ << timestamp_ << data_ << nonce_;
+   ss << previousHash_ << timestamp_ << nonce_;
 
    return sha256(ss.str());
 }
@@ -47,7 +50,7 @@ json Block::toJSON() const
    json jsData;
 
    jsData["timestamp"] = timestamp_;
-   jsData["data"] = data_;
+
    jsData["previousHash"] = previousHash_;
    jsData["hash"] = hash_;
    jsData["nonce"] = nonce_;

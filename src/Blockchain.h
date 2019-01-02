@@ -2,6 +2,7 @@
 #define BLOCKCHAIN_H
 
 #include "Block.h"
+#include "Transaction.h"
 #include "JSON/json.hpp"
 
 #include <iostream>
@@ -19,16 +20,24 @@ class Blockchain
                                    const Blockchain &blockchain);
 
 public:
-   Blockchain(uint64_t difficulty = 3);
+   Blockchain(uint64_t difficulty = 3, int miningReward = 100);
    ~Blockchain() = default;
 
-   void addBlock(const std::string &data);
+   void createTransaction(const std::string &fromAddress,
+                          const std::string &toAddress, int amount);
+   void minePendingTransaction(const std::string &miningRewardAddress);
+   int getBalanceOfAddress(const std::string &address) const;
    bool isValid() const;
    json toJSON() const;
 
 private:
+   using blockchain_t = std::vector<std::unique_ptr<Block>>;
+   using pendingtransactions_t = std::vector<std::unique_ptr<Transaction>>;
+
    uint64_t difficulty_;
-   std::vector<std::unique_ptr<Block>> blockchain_;
+   int miningReward_;
+   blockchain_t blockchain_;
+   pendingtransactions_t pendingTransactions_;
 
    Block &getLastBlock() { return *(blockchain_[blockchain_.size() - 1]); }
 };
