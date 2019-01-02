@@ -1,5 +1,6 @@
 #include "AppInfo.h"
 #include "Blockchain.h"
+#include "ClocksTimers.h"
 
 #include <iostream>
 
@@ -15,8 +16,8 @@ int main(int argc, char *argv[])
 
    Blockchain blockchain{difficulty};
 
-   blockchain.addBlock(1, "10/07/2018", "{ amount: 4 }");
-   blockchain.addBlock(2, "12/07/2018", "{ amount: 10}");
+   blockchain.addBlock(1, nowAsString(), "{ amount: 4 }");
+   blockchain.addBlock(2, nowAsString(), "{ amount: 10}");
 
    std::cout << "\nBlockchain:\n" << blockchain << "\n";
 
