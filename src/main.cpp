@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 
    Blockchain blockchain{difficulty};
 
-   blockchain.addBlock(1, nowAsString(), "{ amount: 4 }");
-   blockchain.addBlock(2, nowAsString(), "{ amount: 10}");
+   blockchain.addBlock(1, "{ amount: 4 }");
+   blockchain.addBlock(2, "{ amount: 10}");
 
    std::cout << "\nBlockchain:\n" << blockchain << "\n";
 

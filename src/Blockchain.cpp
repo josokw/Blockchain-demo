@@ -1,5 +1,7 @@
 #include "Blockchain.h"
 
+#include "ClocksTimers.h"
+
 std::ostream &operator<<(std::ostream &os, const Blockchain &blockchain)
 {
    for (auto &bl : blockchain.blockchain_) {
@@ -16,11 +18,10 @@ Blockchain::Blockchain(uint64_t difficulty)
       std::make_unique<Block>(0, "01/01/2018", "Genesis block", "0"));
 }
 
-void Blockchain::addBlock(uint64_t index, const std::string &timestamp,
-                          const std::string &data)
+void Blockchain::addBlock(uint64_t index, const std::string &data)
 {
-   auto pBlock =
-      std::make_unique<Block>(index, timestamp, data, getLastBlock().getHash());
+   auto pBlock = std::make_unique<Block>(index, nowAsString(), data,
+                                         getLastBlock().getHash());
    pBlock->mine(difficulty_);
    blockchain_.push_back(std::move(pBlock));
 }
