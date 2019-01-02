@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
    blockchain.addBlock(1, "10/07/2018", "{ amount: 4 }");
    blockchain.addBlock(2, "12/07/2018", "{ amount: 10}");
 
-   std::cout << "\nBlockchain:\n" << blockchain << "\n\n";
+   std::cout << "\nBlockchain:\n" << blockchain << "\n";
 
    std::cout << "Blockchain JSON:\n" << blockchain.toJSON().dump(3) << "\n\n";
 
