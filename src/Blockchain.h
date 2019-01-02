@@ -22,7 +22,7 @@ public:
    Blockchain(uint64_t difficulty = 3);
    ~Blockchain() = default;
 
-   void addBlock(uint64_t index, const std::string &data);
+   void addBlock(const std::string &data);
    bool isValid() const;
    json toJSON() const;
 

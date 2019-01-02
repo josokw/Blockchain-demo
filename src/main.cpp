@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 
    Blockchain josokwCoin{difficulty};
 
-   josokwCoin.addBlock(1, "{ amount: 4 }");
-   josokwCoin.addBlock(2, "{ amount: 10}");
+   josokwCoin.addBlock("{ amount: 4 }");
+   josokwCoin.addBlock("{ amount: 10}");
 
    std::cout << "\nBlockchain:\n" << josokwCoin << "\n";
 

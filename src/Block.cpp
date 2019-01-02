@@ -5,17 +5,16 @@
 
 std::ostream &operator<<(std::ostream &os, const Block &block)
 {
-   os << "[" << block.index_ << "] " << block.timestamp_ << " " << block.data_
+   os << block.timestamp_ << " " << block.data_
       << " " << block.previousHash_ << " " << block.hash_ << " "
       << block.nonce_;
 
    return os;
 }
 
-Block::Block(uint64_t index, const std::string &timestamp,
+Block::Block(const std::string &timestamp,
              const std::string &data, const std::string &previousHash)
-   : index_{index}
-   , timestamp_{timestamp}
+   : timestamp_{timestamp}
    , data_{data}
    , previousHash_{previousHash}
    , hash_{calculateHash()}
@@ -26,7 +25,7 @@ Block::Block(uint64_t index, const std::string &timestamp,
 std::string Block::calculateHash() const
 {
    std::stringstream ss;
-   ss << index_ << previousHash_ << timestamp_ << data_ << nonce_;
+   ss << previousHash_ << timestamp_ << data_ << nonce_;
 
    return sha256(ss.str());
 }
@@ -47,7 +46,6 @@ json Block::toJSON() const
 {
    json jsData;
 
-   jsData["index"] = index_;
    jsData["timestamp"] = timestamp_;
    jsData["data"] = data_;
    jsData["previousHash"] = previousHash_;

@@ -18,13 +18,12 @@ class Block
    friend std::ostream &operator<<(std::ostream &os, const Block &block);
 
 public:
-   Block(uint64_t index, const std::string &timestamp, const std::string &data,
+   Block(const std::string &timestamp, const std::string &data,
          const std::string &previousHash = "");
    Block(const Block &other) = delete;
    Block &operator=(const Block &other) = delete;
    ~Block() = default;
 
-   auto getIndex() const { return index_; }
    void setHash(const std::string &hash) { hash_ = hash; }
    const std::string &getHash() const { return hash_; }
 
@@ -39,7 +38,6 @@ public:
    json toJSON() const;
 
 private:
-   uint64_t index_;
    std::string timestamp_;
    std::string data_;
    std::string previousHash_;

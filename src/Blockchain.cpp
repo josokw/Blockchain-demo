@@ -15,13 +15,13 @@ Blockchain::Blockchain(uint64_t difficulty)
    , blockchain_{}
 {
    blockchain_.emplace_back(
-      std::make_unique<Block>(0, "01/01/2018", "Genesis block", "0"));
+      std::make_unique<Block>(nowAsString(), "Genesis block", "0"));
 }
 
-void Blockchain::addBlock(uint64_t index, const std::string &data)
+void Blockchain::addBlock(const std::string &data)
 {
-   auto pBlock = std::make_unique<Block>(index, nowAsString(), data,
-                                         getLastBlock().getHash());
+   auto pBlock =
+      std::make_unique<Block>(nowAsString(), data, getLastBlock().getHash());
    pBlock->mine(difficulty_);
    blockchain_.push_back(std::move(pBlock));
 }
@@ -46,8 +46,9 @@ json Blockchain::toJSON() const
    json jsonData;
 
    jsonData["length"] = blockchain_.size();
+   u_int32_t index{0};
    for (auto &block : blockchain_) {
-      jsonData["chain"][block->getIndex()] = block->toJSON();
+      jsonData["chain"][index++] = block->toJSON();
    }
 
    return jsonData;
