@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
    std::cout << "Blockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
 
-   std::cout << "The josokwCoin is "
+   std::cout << "The josokwCoin blockchain is "
              << (josokwCoin.isValid() ? "valid" : "not valid") << "\n\n";
 
    return 0;
