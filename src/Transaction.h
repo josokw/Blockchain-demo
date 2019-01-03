@@ -17,11 +17,13 @@ public:
    const auto &getFromAddress() const { return fromAddress_; }
    const auto &getToAddress() const { return toAddress_; }
    auto getAmount() const { return amount_; } 
+   std::string calculateHash() const;
 
 private:
    std::string fromAddress_;
    std::string toAddress_;
    int amount_;
+   std::string timestamp_;
 };
 
 #endif
