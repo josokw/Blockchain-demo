@@ -29,3 +29,15 @@ std::string Transaction::calculateHash() const
 
    return sha256(ss.str());
 }
+
+json Transaction::toJSON() const
+{
+   json jsData;
+
+   jsData["fromAddress"] = fromAddress_;
+   jsData["toAddress"] = toAddress_;
+   jsData["amount"] = amount_;
+   jsData["timestamp"] = timestamp_;
+
+   return jsData;
+}

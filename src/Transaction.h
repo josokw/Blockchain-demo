@@ -1,8 +1,12 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
+#include "json.hpp"
+
 #include <iostream>
 #include <string>
+
+using json = nlohmann::json;
 
 class Transaction
 {
@@ -18,6 +22,7 @@ public:
    const auto &getToAddress() const { return toAddress_; }
    auto getAmount() const { return amount_; } 
    std::string calculateHash() const;
+   json toJSON() const;
 
 private:
    std::string fromAddress_;

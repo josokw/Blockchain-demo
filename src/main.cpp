@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-   std::cout << APPNAME << " " << VERSION << "\n\n";
+   std::cout << APPNAME_VERSION << "\n\n";
 
    uint32_t difficulty{4};
 
@@ -16,24 +16,24 @@ int main(int argc, char *argv[])
 
    Blockchain josokwCoin{difficulty};
 
-   josokwCoin.createTransaction("a", "b", 111);
-   josokwCoin.createTransaction("c", "d", 222);
-   josokwCoin.createTransaction("e", "f", 333);
-   josokwCoin.createTransaction("g", "h", 444);
+   josokwCoin.createTransaction("address1", "address2", 100);
+   josokwCoin.createTransaction("address2", "address1", 50);
 
-   josokwCoin.minePendingTransaction("thisIsMe");
-
-   std::cout << "\nBlockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
-   std::cout << "Balance 'a' is " << josokwCoin.getBalanceOfAddress("a")
-             << "\n\n";
-
-   josokwCoin.createTransaction("b", "a", 1111);
-   josokwCoin.minePendingTransaction("thisIsMe");
+   std::cout << "Starting the miner...\n";
+   josokwCoin.minePendingTransactions("josokw-address");
 
    std::cout << "\nBlockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
 
-   std::cout << "Balance 'thisIsMe' is "
-             << josokwCoin.getBalanceOfAddress("thisIsMe") << "\n\n";
+   std::cout << "Balance 'josokw' is "
+             << josokwCoin.getBalanceOfAddress("josokw-address") << "\n\n";
+
+   std::cout << "Starting the miner again...\n";
+   josokwCoin.minePendingTransactions("josokw-address");
+
+   std::cout << "\nBlockchain JSON:\n" << josokwCoin.toJSON().dump(3) << "\n\n";
+
+   std::cout << "Balance 'josokw' is "
+             << josokwCoin.getBalanceOfAddress("josokw-address") << "\n\n";
 
    std::cout << "The josokwCoin blockchain is "
              << (josokwCoin.isValid() ? "valid" : "not valid") << "\n\n";

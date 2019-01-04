@@ -50,6 +50,10 @@ json Block::toJSON() const
    json jsData;
 
    jsData["timestamp"] = timestamp_;
+   u_int32_t index{0};
+   for (auto &tr : transactions_) {
+      jsData["transactions"][index++] = tr->toJSON();
+   }
 
    jsData["previousHash"] = previousHash_;
    jsData["hash"] = hash_;

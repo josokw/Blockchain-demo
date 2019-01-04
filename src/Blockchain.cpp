@@ -27,7 +27,7 @@ void Blockchain::createTransaction(const std::string &fromAddress,
       std::move(std::make_unique<Transaction>(fromAddress, toAddress, amount)));
 }
 
-void Blockchain::minePendingTransaction(const std::string &miningRewardAddress)
+void Blockchain::minePendingTransactions(const std::string &miningRewardAddress)
 {
    auto pBlock = std::make_unique<Block>(nowAsString(), pendingTransactions_,
                                          getLastBlock().getHash());
@@ -78,6 +78,10 @@ json Blockchain::toJSON() const
    u_int32_t index{0};
    for (auto &block : blockchain_) {
       jsonData["chain"][index++] = block->toJSON();
+   }
+   index = 0;
+   for (auto &tr : pendingTransactions_) {
+      jsonData["pendingTransactions"][index++] = tr->toJSON();
    }
 
    return jsonData;

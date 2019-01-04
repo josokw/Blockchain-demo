@@ -25,7 +25,7 @@ public:
 
    void createTransaction(const std::string &fromAddress,
                           const std::string &toAddress, int amount);
-   void minePendingTransaction(const std::string &miningRewardAddress);
+   void minePendingTransactions(const std::string &miningRewardAddress);
    int getBalanceOfAddress(const std::string &address) const;
    bool isValid() const;
    json toJSON() const;
