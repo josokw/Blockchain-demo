@@ -6,10 +6,10 @@ This code example shows how I try to learn to write a C++ Blockchain demo versio
 
 The C++ code is based on Javascript code:
 
- + [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124), release v0.1
- + [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814), release v0.2
- + [Miner rewards & transactions in Javascript (Blockchain, part 3)](https://www.youtube.com/watch?v=fRV6cGXVQ4I)
- + [Signing transactions in Javascript (Blockchain, part 4)](https://www.youtube.com/watch?v=kWQ84S13-hw)
++ [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124), release v0.1
++ [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814), release v0.2
++ [Miner rewards & transactions in Javascript (Blockchain, part 3)](https://www.youtube.com/watch?v=fRV6cGXVQ4I), release v0.3
++ [Signing transactions in Javascript (Blockchain, part 4)](https://www.youtube.com/watch?v=kWQ84S13-hw)
 
 ## Build management by CMake
 
@@ -34,48 +34,114 @@ The difficulty level for mining can be changed by a command line parameter.
 
 ## Output example
 
-Output for difficulty level 3:
+Output for difficulty level 4:
 
-    BlockchainDemo 0.1.2
+    BlockchainDemo v0.3.0
 
-    Block mined: 000385a6d97b8d566f574911fcd6e1805a8d3fb880de2d3a5c9b8f7c4dc8dfb2
-    Block mined: 000b5b2895e90d463c9c401eb29cf611257162c851fdb4f9fdefb9ca79337773
-
-    Blockchain:
-    [0] 01/01/2018 Genesis block 0 6a26925d3118f38f7bea9e9bbaf7edc7fc0ee67c64385325a16957809256e27f 0
-    [1] 10/07/2018 { amount: 4 } 6a26925d3118f38f7bea9e9bbaf7edc7fc0ee67c64385325a16957809256e27f 000385a6d97b8d566f574911fcd6e1805a8d3fb880de2d3a5c9b8f7c4dc8dfb2 13434
-    [2] 12/07/2018 { amount: 10} 000385a6d97b8d566f574911fcd6e1805a8d3fb880de2d3a5c9b8f7c4dc8dfb2 000b5b2895e90d463c9c401eb29cf611257162c851fdb4f9fdefb9ca79337773 4642
-
+    Starting the miner...
+    Block mined: 0000bb9a29f319d928ee4a1644ede1ca77969bad2368a5380bbc25e05669dc44
 
     Blockchain JSON:
     {
     "chain": [
         {
-            "data": "Genesis block",
-            "hash": "6a26925d3118f38f7bea9e9bbaf7edc7fc0ee67c64385325a16957809256e27f",
-            "index": 0,
+            "hash": "a18993cf60a314d0c460c8b014ffe3d67fe2bcf4b09d4f5cea14e5259991b703",
             "nonce": 0,
             "previousHash": "0",
-            "timestamp": "01/01/2018"
+            "timestamp": "2019/01/04-10.26.54"
         },
         {
-            "data": "{ amount: 4 }",
-            "hash": "000385a6d97b8d566f574911fcd6e1805a8d3fb880de2d3a5c9b8f7c4dc8dfb2",
-            "index": 1,
-            "nonce": 13434,
-            "previousHash": "6a26925d3118f38f7bea9e9bbaf7edc7fc0ee67c64385325a16957809256e27f",
-            "timestamp": "10/07/2018"
-        },
-        {
-            "data": "{ amount: 10}",
-            "hash": "000b5b2895e90d463c9c401eb29cf611257162c851fdb4f9fdefb9ca79337773",
-            "index": 2,
-            "nonce": 4642,
-            "previousHash": "000385a6d97b8d566f574911fcd6e1805a8d3fb880de2d3a5c9b8f7c4dc8dfb2",
-            "timestamp": "12/07/2018"
+            "hash": "0000bb9a29f319d928ee4a1644ede1ca77969bad2368a5380bbc25e05669dc44",
+            "nonce": 1464,
+            "previousHash": "a18993cf60a314d0c460c8b014ffe3d67fe2bcf4b09d4f5cea14e5259991b703",
+            "timestamp": "2019/01/04-10.26.54",
+            "transactions": [
+                {
+                "amount": 100,
+                "fromAddress": "address1",
+                "timestamp": "2019/01/04-10.26.54",
+                "toAddress": "address2"
+                },
+                {
+                "amount": 50,
+                "fromAddress": "address2",
+                "timestamp": "2019/01/04-10.26.54",
+                "toAddress": "address1"
+                }
+            ]
         }
     ],
-    "length": 3
+    "length": 2,
+    "pendingTransactions": [
+        {
+            "amount": 100,
+            "fromAddress": "",
+            "timestamp": "2019/01/04-10.26.54",
+            "toAddress": "josokw-address"
+        }
+    ]
     }
 
-    The blockchain is valid
+    Balance 'josokw' is 0
+
+    Starting the miner again...
+    Block mined: 00001623918c0e568ea6fd5d0717bb9ecc0eef0ad9b185fe218141c72fd294c5
+
+    Blockchain JSON:
+    {
+    "chain": [
+        {
+            "hash": "a18993cf60a314d0c460c8b014ffe3d67fe2bcf4b09d4f5cea14e5259991b703",
+            "nonce": 0,
+            "previousHash": "0",
+            "timestamp": "2019/01/04-10.26.54"
+        },
+        {
+            "hash": "0000bb9a29f319d928ee4a1644ede1ca77969bad2368a5380bbc25e05669dc44",
+            "nonce": 1464,
+            "previousHash": "a18993cf60a314d0c460c8b014ffe3d67fe2bcf4b09d4f5cea14e5259991b703",
+            "timestamp": "2019/01/04-10.26.54",
+            "transactions": [
+                {
+                "amount": 100,
+                "fromAddress": "address1",
+                "timestamp": "2019/01/04-10.26.54",
+                "toAddress": "address2"
+                },
+                {
+                "amount": 50,
+                "fromAddress": "address2",
+                "timestamp": "2019/01/04-10.26.54",
+                "toAddress": "address1"
+                }
+            ]
+        },
+        {
+            "hash": "00001623918c0e568ea6fd5d0717bb9ecc0eef0ad9b185fe218141c72fd294c5",
+            "nonce": 41362,
+            "previousHash": "0000bb9a29f319d928ee4a1644ede1ca77969bad2368a5380bbc25e05669dc44",
+            "timestamp": "2019/01/04-10.26.54",
+            "transactions": [
+                {
+                "amount": 100,
+                "fromAddress": "",
+                "timestamp": "2019/01/04-10.26.54",
+                "toAddress": "josokw-address"
+                }
+            ]
+        }
+    ],
+    "length": 3,
+    "pendingTransactions": [
+        {
+            "amount": 100,
+            "fromAddress": "",
+            "timestamp": "2019/01/04-10.26.54",
+            "toAddress": "josokw-address"
+        }
+    ]
+    }
+
+    Balance 'josokw' is 100
+
+    The josokwCoin blockchain is valid
