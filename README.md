@@ -3,8 +3,9 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f8150da8d7a40d69e7797a7547a4c51)](https://www.codacy.com/app/josokw/Blockchain-demo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=josokw/Blockchain-demo&amp;utm_campaign=Badge_Grade)
 
 This code example shows how I try to learn to write a C++ Blockchain demo version for educational purposes.
+I use a 'learning by cloning' approach: refactoring JavaScript code examples to C++.
 
-The C++ code is based on Javascript code:
+JavaScript code examples [Savjee](https://www.savjee.be/):
 
 + [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124), release v0.1
 + [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814), release v0.2
