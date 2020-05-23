@@ -1,4 +1,4 @@
-# Blockchain-demo
+# Blockchain-demo 'josokwCoin'
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f8150da8d7a40d69e7797a7547a4c51)](https://www.codacy.com/app/josokw/Blockchain-demo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=josokw/Blockchain-demo&amp;utm_campaign=Badge_Grade)
 
@@ -7,9 +7,9 @@ I use a 'learning by cloning' approach: refactoring JavaScript code examples to 
 
 JavaScript code examples [Savjee](https://www.savjee.be/):
 
-+ [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124), release v0.1
-+ [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814), release v0.2
-+ [Miner rewards & transactions in Javascript (Blockchain, part 3)](https://www.youtube.com/watch?v=fRV6cGXVQ4I), release v0.3
++ [Creating a blockchain with Javascript (Blockchain, part 1)](https://www.youtube.com/watch?v=zVqczFZr124), C++ release v0.1
++ [Implementing Proof-of-Work in Javascript (Blockchain, part 2)](https://www.youtube.com/watch?v=HneatE69814), C++ release v0.2
++ [Miner rewards & transactions in Javascript (Blockchain, part 3)](https://www.youtube.com/watch?v=fRV6cGXVQ4I), C++ release v0.3
 + [Signing transactions in Javascript (Blockchain, part 4)](https://www.youtube.com/watch?v=kWQ84S13-hw)
 
 ## Build management by CMake
@@ -47,8 +47,7 @@ The executable is found in the bin directory. The default difficulty level for m
     cd ../bin
     ./Blockchain-demo
 
-**Proof of work** (POW): a method to insure that the new block was difficult (costly, time consuming) to be made.
-The hash of a block must start with a certain number of zeros. 
+**Proof of work** (POW): a method to insure that the new block was difficult (costly, time consuming) to be made. The hash of a block must start with a certain number of zeros. 
 
 The **nonce** in a bitcoin block is a 32-bit (4-byte) field whose value is set so that the hash of the block will contain a run of leading zeros. 
 
