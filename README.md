@@ -57,6 +57,14 @@ The difficulty level for mining can be changed by a command line parameter.
     cd ../bin
     ./Blockchain-demo 3
 
+## Bitcoin: critique and problems ==> IOTA
+
+- [Huge amount of powerconsumption for mining](https://www.theguardian.com/technology/2017/nov/27/bitcoin-mining-consumes-electricity-ireland).
+
+- [Scalability problem](https://hackernoon.com/the-blockchain-scalability-problem-the-race-for-visa-like-transaction-speed-5cce48f9d44).
+
+- The [IOTA Tangle](http://tangle.glumb.de/) takes another approach: [no blocks, no chain (Directed Acyclic Graph)](https://www.iota.org/research/meet-the-tangle). 
+
 ## Output example
 
 Output in JSON format for difficulty level 4:
