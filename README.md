@@ -40,13 +40,15 @@ Some examples hashing strings:
 
 [How secure is 256 bit security?](https://www.youtube.com/watch?v=S9JGmA5_unY)
 
-## Executing 'Blockchain-demo'
+## Executing 'Blockchain-demo' and mining
 
 The executable is found in the bin directory. The default difficulty level for mining is 4.
 
     cd ../bin
     ./Blockchain-demo
 
+**Proof of work** (POW): a method to insure that the new block was difficult (costly, time consuming) to be made.
+The hash of a block must start with a certain number of zeros. 
 The difficulty level for mining can be changed by a command line parameter.
 
     cd ../bin
@@ -54,7 +56,7 @@ The difficulty level for mining can be changed by a command line parameter.
 
 ## Output example
 
-Output for difficulty level 4:
+Output in JSON format for difficulty level 4:
 
     BlockchainDemo v0.3.0
 
