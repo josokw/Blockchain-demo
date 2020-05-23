@@ -49,6 +49,9 @@ The executable is found in the bin directory. The default difficulty level for m
 
 **Proof of work** (POW): a method to insure that the new block was difficult (costly, time consuming) to be made.
 The hash of a block must start with a certain number of zeros. 
+
+The **nonce** in a bitcoin block is a 32-bit (4-byte) field whose value is set so that the hash of the block will contain a run of leading zeros. 
+
 The difficulty level for mining can be changed by a command line parameter.
 
     cd ../bin
