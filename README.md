@@ -21,6 +21,25 @@ CMake must be installed. Goto the Blockchain-demo directory.
     cmake ..
     make
 
+## SHA-256
+
+**SHA**: Secure Hash Algorithm. **SHA-256** is part of SHA-2 set of cryptographic hash functions, designed by the U.S. National Security Agency (NSA) and published in 2001. The **SHA-2** family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256.
+
+Some examples hashing strings:
+
+```
+"1"      ==> 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b
+"12"     ==> 6b51d431df5d7f141cbececcf79edf3dd861c3b4069f0b11661a3eefacbba918
+"123"    ==> a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+"321"    ==> 8d23cf6c86e834a7aa6eded54c26ce2bb2e74903538c61bdd5d2197997ab2f72
+"abc321" ==> 95d0bf701b3efa5fe1207167d08044bac7ae34c090af18847c915c5c8a49455a
+"     "  ==> 399141be1d30ac2656d89eedcf0d8dcedaa72d6c29bf959cae243dc7b1442cf6
+"abc"    ==> ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+```
+[Online hash generator](https://passwordsgenerator.net/sha256-hash-generator/).
+
+[How secure is 256 bit security?](https://www.youtube.com/watch?v=S9JGmA5_unY)
+
 ## Executing 'Blockchain-demo'
 
 The executable is found in the bin directory. The default difficulty level for mining is 4.
