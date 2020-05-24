@@ -64,6 +64,8 @@ The difficulty level for mining can be changed by a command line parameter.
 
 - The [IOTA Tangle](http://tangle.glumb.de/) takes another approach: [no blocks, no chain (Directed Acyclic Graph)](https://www.iota.org/research/meet-the-tangle). 
 
+- Industrial IoT [A Smart Factory Powered by an IOTA](https://www.iota.org/verticals/industrial-iot). 
+
 ## Output example
 
 Output in JSON format for difficulty level 4:
